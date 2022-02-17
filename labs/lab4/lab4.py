@@ -1,5 +1,5 @@
 """
-Name: <your name goes here – first and last>
+Name: <your name goes here – Evie Purcell>
 <ProgramName>.py
 
 Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
