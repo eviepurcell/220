@@ -16,6 +16,22 @@ def is_in_linear(search_val, values):
         i += 1
     return i < len(search_val)
 
+def is_in_binary(search_val, values):
+    low = 0
+    high = len(values) - 1
+    mid = 0
+    while low <= high:
+
+        mid = (high + low) // 2
+
+        if values[mid] < search_val:
+            low = mid + 1
+        elif values[mid] > search_val:
+            high = mid - 1
+        else:
+            return True
+    return False
+
 def good_input():
     user = eval(input("The range is 1-10. Input within range: "))
     while user < 1 or user > 10:
@@ -56,7 +72,43 @@ def hi_lo_game():
     if guesses == 0:
         print("You've lost! The number was", randomnumber)
 
+def selection_sort(values):
+    n = len(values)
+    for j in range(n):
+        mp = j
+        for i in range(j, n):
+            if values[i] < values[mp]:
+                mp = i
+        values[j], values[mp] = values[mp], values[j]
+
+def rect_sort(rectangles):
+    amount = len(rectangles)
+    for least in range(amount - 1):
+        mp = least
+        for i in range(least, n):
+            if calc_area(rectangles[i]) < calc_area(rectangles[mp]):
+                mp = i
+        rectangles[least], rectangles[mp] = rectangles[mp], rectangles[least]
+
+
+def calc_area(rect):
+    y1 = rect.getP1().getY()
+    y2 = rect.getP2().getY()
+    x1 = rect.getP1().getX()
+    x2 = rect.getP2().getX()
+    length = abs(y2 - y1)
+    width = abs(x2 - x1)
+    area = length * width
+    return area
+
+
+
+
+
 
 
 if __name__ == '__main__':
-
+    test_list = [7, 4, 6, 2, 3, 1]
+    print(test_list)
+    selection_sort(test_list)
+    print(test_list)
